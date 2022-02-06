@@ -15,10 +15,10 @@ def draw_spirograph(size):
     for _ in range(360 // size):
         t.color(random_color())
         t.speed("fastest")
-        t.circle(90)
+        t.circle(100)
         t.setheading(t.heading() + size)
 
 
-draw_spirograph(5)
+draw_spirograph(2)
 t.Screen().exitonclick()
 
