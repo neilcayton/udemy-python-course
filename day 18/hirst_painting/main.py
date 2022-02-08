@@ -8,26 +8,23 @@ color_set = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (
              (210, 200, 151), (141, 171, 155), (179, 201, 186), (172, 153, 159), (212, 183, 177), (176, 198, 203),
              (150, 115, 120), (202, 185, 190), (40, 72, 82), (46, 73, 62), (47, 66, 82)]
 
-# t.setheading(225)
-# t.penup()
-# t.forward(270)
+t.hideturtle()
+t.setheading(225)
 t.penup()
-t.goto(-190, -190)
-t.pendown()
+t.forward(270)
+t_goto = t.pos()
 t.setheading(0)
-t_position = t.pos()
-print(t_position)
 t.setheading(360)
 levels = 1
+t.isvisible()
 for i in range(1, 100):
     dot_color = random.choice(color_set)
     t.pendown()
-    t.dot(10, dot_color)
+    t.dot(20, dot_color)
     t.penup()
-    t.forward(40)
-    print(i)
+    t.forward(45)
     if i == 10 * levels:
-        t.goto(-190, -190 + 43 * levels)
+        t.goto(t_goto[0], t_goto[1] + 40 * levels)
         levels += 1
 
 t.Screen().exitonclick()
