@@ -7,7 +7,10 @@ t = Turtle()
 screen = Screen()
 screen.setup(700, 570)
 screen.bgpic("Capture.PNG")
-user_bet = screen.textinput(title="Make your Bet", prompt="Which turtle will win the race? Enter Color: ")
+user_bet = screen.textinput(title="Make your Bet", prompt=f"Which turtle will win the race? "
+                                                          "choose from:"
+                                                          "cyan pink green blue purple red pink green yellow"
+                                                          "Enter Color: ")
 
 colors = ["red", "cyan", "pink", "yellow", "green", "blue", "purple"]
 all_turtles = []
