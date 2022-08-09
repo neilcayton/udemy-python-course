@@ -1,0 +1,81 @@
+from random import Random
+class Food:
+    def __init__(self):
+
+    def generate_loc(self):
+        random_gen = Random()
+        food_x_cor =
+        food_y_cor =
+        food_loc =
+from turtle import Screen
+import time
+from snake import Snake
+screen = Screen()
+screen.bgcolor("black")
+screen.title("Welcome to snake dungeon")
+screen.setup(height=600, width=600)
+screen.tracer(0)
+
+snake = Snake()
+
+
+game_is_on = True
+
+while game_is_on:
+    screen.update()
+    time.sleep(0.1)
+    snake.move()
+    snake.whole_control()
+
+
+screen.exitonclick()
+
+
+
+from turtle import Turtle, Screen
+Constant_Speed = 20
+
+
+class Snake:
+    def __init__(self):
+        self.segment = []
+        self.snake_length()
+
+
+
+    def snake_length(self):
+        for i in range(0, 5):
+            new_snake = Turtle(shape="square")
+            new_snake.color("white")
+            new_snake.penup()
+            new_snake.goto(x=0 + (-20 * i), y=0)
+            self.segment.append(new_snake)
+
+
+    def move(self):
+        for seg_num in range(len(self.segment) - 1, 0, -1):
+            new_x = self.segment[seg_num - 1].xcor()
+            new_y = self.segment[seg_num - 1].ycor()
+            self.segment[seg_num].goto(new_x, new_y)
+        self.segment[0].forward(Constant_Speed)
+
+    def up_control(self):
+        self.segment[0].setheading(90)
+
+    def down_control(self):
+        self.segment[0].setheading(270)
+
+    def right_control(self):
+        self.segment[0].setheading(0)
+
+    def left_control(self):
+        self.segment[0].setheading(180)
+
+    def whole_control(self):
+        screen = Screen()
+        screen.listen()
+        screen.onkey(self.up_control, "Up")
+        screen.onkey(self.down_control, "Down")
+        screen.onkey(self.right_control, "Right")
+        screen.onkey(self.left_control, "Left")
+
