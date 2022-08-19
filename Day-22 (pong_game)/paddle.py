@@ -1,27 +1,25 @@
 from turtle import Turtle
 
 
-class Paddle():
-    def __init__(self):
-        self.paddle = []
-        self.paddle_part = 4
-        self.paddle_length()
+class Paddle(Turtle):
 
+    def __init__(self, pos):
+        super().__init__()
+        self.speed(100)
+        self.penup()
+        self.shape("square")
+        self.shapesize(stretch_len=2, stretch_wid=9)
+        self.color("white")
+        self.goto(x=pos, y=0)
 
-    def create_paddle(self, addlen):
+    def go_up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
 
-        paddle1 = Turtle()
-        paddle1.speed(100)
-        paddle1.penup()
-        paddle1.shape("square")
-        paddle1.shapesize(2)
-        paddle1.color("white")
-        paddle1.goto(x=350, y= 0 + (-20 *addlen))
-        self.paddle.append(paddle1)
+    def go_down(self):
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
 
-    def paddle_length(self):
-        for i in range(0, self.paddle_part):
-            self.create_paddle(i)
-
-
-    # def vertical_upanddown(self):
+    def all_command(self):
+        self.go_up()
+        self.go_down()
