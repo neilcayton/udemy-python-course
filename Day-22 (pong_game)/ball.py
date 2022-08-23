@@ -5,7 +5,7 @@ class Ball(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.speed(20)
+        self.speed(50)
         self.color("white")
         self.shape("circle")
         self.shapesize(1)
@@ -13,6 +13,7 @@ class Ball(Turtle):
         self.showturtle()
         self.ycor_move = 10
         self.xcor_move = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_xcor = self.xcor() + self.xcor_move
@@ -24,6 +25,10 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.xcor_move *= -1
+        self.move_speed *= 0.9
 
     def reset_position(self):
         self.goto(0, 0)
+
+    def reset_speed(self):
+        self.move_speed = 0.1
